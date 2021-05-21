@@ -34,4 +34,13 @@ module.exports = {
 			res.status(500).json({ error: "Ha ocurrido un error interno" });
 		}
 	},
+	async finalizarVigencia(){
+		const id = req.params.id;
+		const cuerpoTecnico = await cuerpoTecnicoController.finalizarVigencia(id);
+		if (cuerpoTecnico) {
+			return res.status(200).json(cuerpoTecnico);
+		} else {
+			res.status(500).json({ error: "Ha ocurrido un error interno" });
+		}
+	}
 };
