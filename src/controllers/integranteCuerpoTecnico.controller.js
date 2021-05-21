@@ -24,4 +24,15 @@ module.exports = {
 		}
 		return integranteVO;
 	},
+	async listarPorCuerpo(id_cuerpo_tecnico) {
+		let listaIntegrante = null;
+		try {
+			listaIntegrante = await IntegranteCuerpoTecnico.findAll({
+				where: { id_cuerpo_tecnico },
+			});
+		} catch (error) {
+			console.log(error);
+		}
+		return listaIntegrante;
+	},
 };
