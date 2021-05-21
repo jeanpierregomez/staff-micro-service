@@ -1,6 +1,7 @@
 const { DataTypes, QueryTypes } = require("sequelize");
 const { sequelize } = require("../database");
 const TipoIntegranteCuerpoTecnico = require("./TipoIntegranteCuerpoTecnico");
+const CuerpoTecnico = require("./CuerpoTecnico");
 
 const IntegranteCuerpoTecnico = sequelize.define(
 	"integrante_cuerpo_tecnico",
@@ -42,6 +43,13 @@ const IntegranteCuerpoTecnico = sequelize.define(
 			type: DataTypes.INTEGER,
 			references: {
 				model: TipoIntegranteCuerpoTecnico,
+				key: "id",
+			},
+		},
+		id_cuerpo_tecnico: {
+			type: DataTypes.INTEGER,
+			references: {
+				model: CuerpoTecnico,
 				key: "id",
 			},
 		},
