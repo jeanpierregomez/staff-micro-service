@@ -1,8 +1,10 @@
 const router = require("express").Router();
 const cuerpoTecnicoRouter = require("./cuerpoTecnico.routes");
 const integranteCuerpoTecnicoRouter = require("./integranteCuerpoTecnico.routes");
+const tipoIntegranteRouter = require("./tipoIntegrante.routers");
 
 router.use("/cuerpo_tecnico", cuerpoTecnicoRouter);
 router.use("/integrante_cuerpo_tecnico", integranteCuerpoTecnicoRouter);
+router.use("/tipo_integrante", tipoIntegranteRouter);
 
 module.exports = router;
