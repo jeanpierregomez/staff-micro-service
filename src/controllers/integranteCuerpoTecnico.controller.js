@@ -24,4 +24,36 @@ module.exports = {
 		}
 		return integranteVO;
 	},
+	async listarPorCuerpo(id_cuerpo_tecnico) {
+		let listaIntegrante = null;
+		try {
+			listaIntegrante = await IntegranteCuerpoTecnico.findAll({
+				where: { id_cuerpo_tecnico },
+			});
+		} catch (error) {
+			console.log(error);
+		}
+		return listaIntegrante;
+	},
+	async getPorId(id) {
+		let integranteVO = null;
+		try {
+			integranteVO = await IntegranteCuerpoTecnico.findByPk(id);
+		} catch (error) {
+			console.log(error);
+		}
+		return integranteVO;
+	},
+	async eliminar(id) {
+		let integranteVO = null;
+		try {
+			integranteVO = await IntegranteCuerpoTecnico.findByPk(id);
+			if (integranteVO) {
+				integranteVO = await integranteVO.destroy();
+			}
+		} catch (error) {
+			console.log(error);
+		}
+		return integranteVO;
+	},
 };
