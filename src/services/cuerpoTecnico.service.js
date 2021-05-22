@@ -3,6 +3,7 @@ const { cuerpoTecnicoController } = require("../controllers/index.controller");
 module.exports = {
 	async agregar(req, res) {
 		const data = req.body;
+		console.log(req.body);
 		data.fecha_contratacion = new Date(data.fecha_contratacion);
 		data.terminacion_contrato = new Date(data.terminacion_contrato);
 		const cuerpoTecnico = await cuerpoTecnicoController.guardar(data);
